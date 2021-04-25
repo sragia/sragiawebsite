@@ -7,10 +7,7 @@ export function Home() {
     <>
       <Helmet>
         <title>sragiacom</title>
-        <meta
-          name="description"
-          content="A React Boilerplate application homepage"
-        />
+        <meta name="description" content="sragiacom" />
       </Helmet>
       <Logo />
     </>
