@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'prod',
-      script: 'serve -s build',
+      script: 'yarn prod:start',
       watch: '.',
     },
   ],

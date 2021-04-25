@@ -1,0 +1,15 @@
+.wrapper {
+  margin-top: 0;
+  svg {
+    width: 25px;
+    height: auto;
+    fill: #535353;
+    transition: all ease-in-out 0.3s;
+    position: relative;
+  }
+  a:hover {
+    svg {
+      fill: currentColor;
+    }
+  }
+}

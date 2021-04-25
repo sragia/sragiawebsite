@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { getRandomColor, InverseColor } from '../../../../helpers/index';
+import { Socials } from '../Socials/Socials';
 
 import styles from './styles.module.scss';
 
@@ -23,7 +24,7 @@ export function Logo() {
           sragia
         </span>
         <span>com</span>
-        <p className={styles.soon}>soon</p>
+        <Socials color={color} />
       </div>
     </div>
   );
