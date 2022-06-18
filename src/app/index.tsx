@@ -8,18 +8,17 @@
 
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
 import { GlobalStyle } from '../styles/global-styles';
 
-import { HomePage } from './pages/Home/Loadable';
-import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
+import MyRoutes from './components/Routes';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 export function App() {
   const { i18n } = useTranslation();
   return (
-    <BrowserRouter>
+    <Router>
       <Helmet
         titleTemplate="sragiacom"
         defaultTitle="sragiacom"
@@ -28,11 +27,8 @@ export function App() {
         <meta name="description" content="sragia.com" />
       </Helmet>
 
-      <Switch>
-        <Route exact path={process.env.PUBLIC_URL + '/'} component={HomePage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <MyRoutes />
       <GlobalStyle />
-    </BrowserRouter>
+    </Router>
   );
 }

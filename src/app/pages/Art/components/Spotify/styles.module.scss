@@ -1,0 +1,40 @@
+.titleContainer {
+  position: fixed;
+  z-index: 20;
+}
+
+.title {
+  background: #1db954;
+  box-shadow: 3px 3px 0px #ffffff;
+  font-weight: 600;
+  color: white;
+  padding: 5px 15px;
+  display: block;
+  width: auto;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.backBtn {
+  width: 30px;
+  display: block;
+  padding: 5px;
+  background: #222222;
+  box-shadow: 3px 3px 0px #e7e7e7;
+  transition: all ease-in-out 0.4s;
+
+  &:hover {
+    background: #e7e7e7;
+    box-shadow: 3px 3px 0px #222222;
+
+    svg {
+      fill: #222222;
+    }
+  }
+
+  svg {
+    width: 100%;
+    height: 15px;
+    fill: #e7e7e7;
+  }
+}

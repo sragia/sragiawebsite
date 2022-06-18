@@ -1,18 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import { useRandomColorShift } from 'app/hooks/useRandomColorShift';
+import React from 'react';
 
-import { getRandomColor, InverseColor } from '../../../../helpers/index';
+import { InverseColor } from '../../../../helpers/index';
 import { Socials } from '../Socials/Socials';
 
 import styles from './styles.module.scss';
 
 export function Logo() {
-  const [color, setColor] = useState('#F1F2ED');
-
-  useEffect(() => {
-    setInterval(() => {
-      setColor(getRandomColor());
-    }, 1000);
-  }, []);
+  const { color } = useRandomColorShift();
 
   return (
     <div className={styles.wrapper}>

@@ -1,0 +1,19 @@
+.logoWrapper {
+  position: relative;
+  width: 200px;
+  color: white;
+  text-decoration: none;
+}
+
+.container {
+  position: absolute;
+  min-width: 200px;
+  font-size: 20px;
+  top: 15px;
+  left: 15px;
+  font-weight: 500;
+}
+
+.logo {
+  transition: all ease-in-out 0.3s;
+}
