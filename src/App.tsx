@@ -5,22 +5,9 @@ import classnames from 'classnames';
 import Socials from './components/socials/Socials';
 
 const interval = 2000;
-let oldColors = [];
 
 export default function App() {
-  const { color: color1 } = useRandomColorShift({ interval });
-  const { color: color2 } = useRandomColorShift({ interval });
-  const [deg, setDeg] = useState(Math.random() * 360);
-  const [activeState, setActiveState] = useState(0);
-  const [oldState, setOldState] = useState([color1, color2, deg]);
-  useEffect(() => {
-    setActiveState(activeState === 0 ? 1 : 0);
-    setTimeout(() => {
-      setOldState([color1, color2, deg]);
-      setDeg(Math.random() * 360);
-    }, interval);
-  }, [color1]);
-
+  const { color, color2, deg, oldColors, activeState } = useRandomColorShift({ interval });
   return (
     <div className="flex h-[100vh] flex-col items-center justify-center bg-black transition-all">
       <div
@@ -32,8 +19,8 @@ export default function App() {
           },
         )}
         style={{
-          background: `linear-gradient(${!activeState ? deg : oldState[2]}deg, ${!activeState ? color1 : oldState[1]
-            }, ${!activeState ? color2 : oldState[2]})`,
+          background: `linear-gradient(${!activeState ? deg : oldColors[2]}deg, ${!activeState ? color : oldColors[1]
+            }, ${!activeState ? color2 : oldColors[2]})`,
         }}
       ></div>
       <div
@@ -45,8 +32,8 @@ export default function App() {
           },
         )}
         style={{
-          background: `linear-gradient(${activeState ? deg : oldState[2]}deg, ${activeState ? color1 : oldState[1]
-            }, ${activeState ? color2 : oldState[2]})`,
+          background: `linear-gradient(${activeState ? deg : oldColors[2]}deg, ${activeState ? color : oldColors[1]
+            }, ${activeState ? color2 : oldColors[2]})`,
         }}
       ></div>
       <div className="noise"></div>
