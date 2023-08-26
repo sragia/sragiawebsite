@@ -40,7 +40,7 @@ export const hexToRGB = (h: string) => {
   };
 };
 
-export const RGBToHSL = (r: number, g: number, b: number): string => {
+export const RGBToHSL = (r: number, g: number, b: number): {h: number, s: number, l:number} => {
   // Make r, g, and b fractions of 1
   r /= 255;
   g /= 255;
@@ -104,7 +104,7 @@ export const InverseColor = (hex: string) => {
   return '#' + padZero(r) + padZero(g) + padZero(b);
 };
 
-export const HSLtoRGB = (h: number, s: number, l: number): string => {
+export const HSLtoRGB = (h: number, s: number, l: number): {r: number, g: number, b: number} => {
   // Must be fractions of 1
   s /= 100;
   l /= 100;
