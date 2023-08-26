@@ -49,7 +49,7 @@ export default function App() {
             }, ${activeState ? color2 : oldState[2]})`,
         }}
       ></div>
-      <div className="pointer-events-none z-10">
+      <div className="pointer-events-none z-10 relative">
         <HomeLogo />
       </div>
       <div className="absolute bottom-2 right-2">
