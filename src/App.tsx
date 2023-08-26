@@ -32,9 +32,8 @@ export default function App() {
           },
         )}
         style={{
-          background: `linear-gradient(${!activeState ? deg : oldState[2]}deg, ${
-            !activeState ? color1 : oldState[1]
-          }, ${!activeState ? color2 : oldState[2]})`,
+          background: `linear-gradient(${!activeState ? deg : oldState[2]}deg, ${!activeState ? color1 : oldState[1]
+            }, ${!activeState ? color2 : oldState[2]})`,
         }}
       ></div>
       <div
@@ -46,9 +45,8 @@ export default function App() {
           },
         )}
         style={{
-          background: `linear-gradient(${activeState ? deg : oldState[2]}deg, ${
-            activeState ? color1 : oldState[1]
-          }, ${activeState ? color2 : oldState[2]})`,
+          background: `linear-gradient(${activeState ? deg : oldState[2]}deg, ${activeState ? color1 : oldState[1]
+            }, ${activeState ? color2 : oldState[2]})`,
         }}
       ></div>
       <div className="pointer-events-none z-10">
