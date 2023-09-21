@@ -22,6 +22,7 @@ let interval: number | null = null;
 
 const HomeLogo = () => {
   const [index, setIndex] = useState(0);
+  const [show, setShow] = useState(false);
   useEffect(() => {
     if (interval) {
       clearInterval(interval);
@@ -34,23 +35,30 @@ const HomeLogo = () => {
       }
     }, 750);
   }, [setIndex, index]);
+  useEffect(() => {
+    setTimeout(() => {
+      setShow(true);
+    }, 100)
+  }, []);
   // Force tailwind to generete classes
   // className="font-robotoCondensed font-outfit font-krona font-ranga font-pacifico font-bangers font-caveats"
 
   return (
-    <div>
+    <div className={classnames('transition-all duration-1000', {
+      'opacity-100 scale-100': show,
+      'opacity-0 scale-90': !show
+    })}>
       <div
         className={classnames(
           'text-4xl font-medium text-white opacity-20 md:text-6xl',
-          `font-${fontFamilies[index]}`,
+          `font-${fontFamilies[index]}`
         )}
       >
         <span className="p-1">sragia</span>
         <span className="relative z-10 -ml-1 -mr-1 font-bangers text-4xl">.</span>
         <span
-          className={`z-0 bg-red p-1 text-white transition-all font-${
-            fontFamilies[index + 1 > fontFamilies.length ? 0 : index + 1]
-          }`}
+          className={`z-0 bg-red p-1 text-white transition-all font-${fontFamilies[index + 1 > fontFamilies.length ? 0 : index + 1]
+            }`}
         >
           com
         </span>

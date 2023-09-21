@@ -9,7 +9,7 @@ const interval = 2000;
 export default function App() {
   const { color, color2, deg, oldColors, activeState } = useRandomColorShift({ interval });
   return (
-    <div className="flex h-[100vh] flex-col items-center transition-all" style={{
+    <div className="flex h-[100svh] w-[100svw] overflow-hidden flex-col items-center transition-all" style={{
       background: color || '#000'
     }}>
       <div
@@ -39,7 +39,7 @@ export default function App() {
         }}
       ></div>
       <div className="noise"></div>
-      <div className="pointer-events-none z-10 relative top-1/2 -translate-y-1/2">
+      <div className="z-10 relative top-1/2 -translate-y-1/2">
         <HomeLogo />
       </div>
       <div className="absolute bottom-2 right-2">

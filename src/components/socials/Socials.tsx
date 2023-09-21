@@ -3,7 +3,7 @@ const Socials = () => {
         <div>
             <a
                 target="_blank"
-                className="inline-block h-6 w-6 text-white transition-all hover:text-red"
+                className="inline-block h-6 w-6 text-white transition-all hover:text-red hover:scale-110 transition-all duration-300"
                 href="https://github.com/sragia"
                 title="github"
                 aria-label="github"
