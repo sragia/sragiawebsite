@@ -40,19 +40,23 @@ export const hexToRGB = (h: string) => {
   };
 };
 
-export const RGBToHSL = (r: number, g: number, b: number): {h: number, s: number, l:number} => {
+export const RGBToHSL = (
+  r: number,
+  g: number,
+  b: number,
+): { h: number; s: number; l: number } => {
   // Make r, g, and b fractions of 1
   r /= 255;
   g /= 255;
   b /= 255;
 
   // Find greatest and smallest channel values
-  let cmin = Math.min(r, g, b),
-    cmax = Math.max(r, g, b),
-    delta = cmax - cmin,
-    h = 0,
-    s = 0,
-    l = 0;
+  const cmin = Math.min(r, g, b);
+  const cmax = Math.max(r, g, b);
+  const delta = cmax - cmin;
+  let h = 0;
+  let s = 0;
+  let l = 0;
 
   // Calculate hue
   // No difference
@@ -97,24 +101,28 @@ export const InverseColor = (hex: string) => {
     throw new Error('Invalid HEX color.');
   }
   // invert color components
-  var r = (255 - parseInt(hex.slice(0, 2), 16)).toString(16),
+  const r = (255 - parseInt(hex.slice(0, 2), 16)).toString(16),
     g = (255 - parseInt(hex.slice(2, 4), 16)).toString(16),
     b = (255 - parseInt(hex.slice(4, 6), 16)).toString(16);
   // pad each with zeros and return
   return '#' + padZero(r) + padZero(g) + padZero(b);
 };
 
-export const HSLtoRGB = (h: number, s: number, l: number): {r: number, g: number, b: number} => {
+export const HSLtoRGB = (
+  h: number,
+  s: number,
+  l: number,
+): { r: number; g: number; b: number } => {
   // Must be fractions of 1
   s /= 100;
   l /= 100;
 
-  let c = (1 - Math.abs(2 * l - 1)) * s,
-    x = c * (1 - Math.abs(((h / 60) % 2) - 1)),
-    m = l - c / 2,
-    r = 0,
-    g = 0,
-    b = 0;
+  const c = (1 - Math.abs(2 * l - 1)) * s;
+  const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
+  const m = l - c / 2;
+  let r = 0;
+  let g = 0;
+  let b = 0;
 
   if (0 <= h && h < 60) {
     r = c;

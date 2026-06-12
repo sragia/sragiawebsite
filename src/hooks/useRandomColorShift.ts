@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import { getRandomColor } from '../util/colors';
 
 const INITIAL_COLOR = '#F1F2ED';
@@ -17,8 +18,8 @@ export const useRandomColorShift = ({
   const initial = initialColor || (isRandomInitial && getRandomColor()) || INITIAL_COLOR;
   const [color, setColor] = useState(initial);
   const [color2, setColor2] = useState(initial);
-  const [deg, setDeg] = useState(Math.random() * 360)
-  const [oldColors, setOldColors] = useState([initial, initial, Math.random() * 360])
+  const [deg, setDeg] = useState(Math.random() * 360);
+  const [oldColors, setOldColors] = useState([initial, initial, Math.random() * 360]);
   const [activeState, setActiveState] = useState(false);
 
   useEffect(() => {
@@ -32,8 +33,10 @@ export const useRandomColorShift = ({
     setColor(getRandomColor());
 
     return () => {
-        clearInterval(intervalHandler);
-    }
+      clearInterval(intervalHandler);
+    };
+    // activeState drives re-mounting the interval; color values are captured intentionally
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [interval, activeState]);
 
   return {
@@ -41,6 +44,6 @@ export const useRandomColorShift = ({
     color2,
     deg,
     activeState,
-    oldColors
+    oldColors,
   };
 };
